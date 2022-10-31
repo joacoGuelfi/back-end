@@ -2,8 +2,8 @@ class User {
     constructor(nombre, apellido, libros, mascotas) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.libros = [];
-        this.mascotas = [];
+        this.libros = libros;
+        this.mascotas = mascotas;
     }
     // METODOS
     getFullName() {
@@ -20,7 +20,11 @@ class User {
         this.libros.push(libro)
     }
     getBookNames() {
-        return this.libros.name
+        const booksname = []
+        this.libros.forEach(libro => {
+            booksname.push(libro.name)
+        });
+        return booksname
     }
 
 }
@@ -31,6 +35,7 @@ u1.addMascota("gorda")
 u1.addMascota("chocolate")
 u1.addMascota("cuco")
 console.log(u1.countMascotas())
-u1.addBook({ name: "el pricipito", autor: "edgar" })
+u1.addBook("El Principito", "Antonie de Saint")
+u1.addBook("Game of Thrones", "Gorge R R Martin")
 console.log(u1.getBookNames())
 
